@@ -8,13 +8,13 @@ function List (props){
             <h2>Second list</h2>
             </header>
             <div className="List-cards">
-                {this.props.cards.map(item => {
+                {props.cards.map(item => (
                     <Card 
                         key={item.id}
                         title={item.title}
                         component={item.content}
                     />
-                })}
+                ))}
                 <button type="button" className="List-add-button">
                 + Add Random Card
                 </button>

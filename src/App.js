@@ -17,13 +17,13 @@ class App extends React.Component{
           <h1>Trelloyes!</h1>
         </header>
         <div className="App-list">
-            {store.lists.map(item =>{
+            {store.lists.map(item =>(
               <List 
                 key={item.id}
                 header={item.header}
                 cards={item.cardIds.map(id => store.allCards[id])}
               />
-            })}
+            ))}
         </div>
       </main>
   )}
