@@ -2,23 +2,28 @@ import React from 'react';
 import List from './List'
 
 class App extends React.Component{
-  constructor() {
-    super()
-    this.state = {
-      store: this.props
+  static defaultProps = {
+    store: {
+      lists: [],
+      allCards: {},
     }
-  }
-
+  }; 
   
-  
-  render (){
+  render() {
+    const {store} = this.props
     return (
       <main className="App">
         <header className="App-header">
           <h1>Trelloyes!</h1>
         </header>
         <div className="App-list">
-            <List />
+            {store.lists.map(item =>{
+              <List 
+                key={item.id}
+                header={item.header}
+                cards={item.cardIds.map(id => store.allCards[id])}
+              />
+            })}
         </div>
       </main>
   )}
